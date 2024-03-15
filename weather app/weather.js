@@ -55,6 +55,18 @@ document.addEventListener("DOMContentLoaded", function() {
     searchbtn.addEventListener("click",()=>{
         checkweather(searchbox.value);
     });
+    searchbox.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            checkweather(searchbox.value);
+        }
+    });
+
+    searchbox.addEventListener("input", () => {
+        if (searchbox.value.trim() === "") {
+            weatherDiv.style.display = "none";
+            errorDiv.style.display = "none";
+        }
+    });
    
 }); 
 
